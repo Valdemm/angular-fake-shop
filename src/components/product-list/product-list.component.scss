@@ -1,0 +1,28 @@
+.container {
+  padding: 32px 0;
+}
+
+.is-one-third {
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    & {
+      width: 33% !important;
+    }
+  }
+}
+
+.card {
+  min-height: 660px;
+  transition: transform 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+  }
+}
+
+.img {
+  padding: 24px;
+  object-fit: contain;
+}

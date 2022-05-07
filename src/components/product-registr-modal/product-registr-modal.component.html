@@ -1,0 +1,68 @@
+<div class="modal is-active" *ngIf="isFormModalOpen">
+  <div class="modal-background" (click)="onClose.emit(false)"></div>
+  <div class="modal-content">
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Order call</p>
+        <button
+          class="delete"
+          aria-label="close"
+          (click)="onClose.emit(false)"
+        ></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="Enter your name"
+              [(ngModel)]="form.name"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Phone number</label>
+          <div class="control">
+            <input
+              class="input"
+              type="tel"
+              placeholder="Enter your phone number"
+              [(ngModel)]="form.phoneNumber"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input
+              class="input"
+              type="email"
+              placeholder="Enter your email"
+              [(ngModel)]="form.email"
+            />
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link" (click)="closeModal()">
+              Submit
+            </button>
+          </div>
+          <div class="control">
+            <button
+              class="button is-link is-light"
+              (click)="onClose.emit(false)"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

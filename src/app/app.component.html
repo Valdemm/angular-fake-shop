@@ -1,0 +1,12 @@
+<div>
+  <app-header></app-header>
+  <section
+    infiniteScroll
+    [infiniteScrollDistance]="3"
+    [infiniteScrollThrottle]="200"
+    (scrolled)="onScroll()"
+  >
+    <app-product-list [products]="products"></app-product-list>
+  </section>
+  <div *ngIf="loading">Loading...</div>
+</div>

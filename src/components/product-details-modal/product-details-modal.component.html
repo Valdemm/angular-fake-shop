@@ -1,0 +1,49 @@
+<div class="modal is-active" *ngIf="product !== null">
+  <div class="modal-background" (click)="closeModal()"></div>
+  <div class="modal-content">
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">{{ product?.title }}</p>
+        <button
+          class="delete"
+          aria-label="close"
+          (click)="closeModal()"
+        ></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img
+              class="img"
+              src="{{ product?.image }}"
+              alt="Placeholder image"
+            />
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="subtitle is-6">Price: {{ product?.price }}$</p>
+            </div>
+          </div>
+
+          <div class="content">
+            {{ product?.description }}
+          </div>
+        </div>
+        <div class="map-container">
+          <ya-map [center]="placemark" [zoom]="11">
+            <ya-placemark
+              [geometry]="placemark"
+              (yaclick)="changeFormModalVisibility(true)"
+            ></ya-placemark>
+          </ya-map>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<app-product-registr-modal
+  (onClose)="changeFormModalVisibility($event)"
+  [isFormModalOpen]="isFormModalVisible"
+></app-product-registr-modal>
